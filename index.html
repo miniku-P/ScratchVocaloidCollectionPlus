@@ -1,159 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>[公式]スクボカ</title>
+  <meta charset="utf-8">
+  <title>ScVoca-top</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    /* ▼ フォント */
-    @font-face {
-      font-family: "NicoKaku";
-      src: url("./NicoKaku-v2.woff2") format("woff2");
-    }
-    @font-face {
-      font-family: "Tsunagi";
-      src: url("./TsunagiGothic-Black.woff2") format("woff2");
-    }
+    @font-face { font-family: "NicoKaku"; src: url("./NicoKaku-v2.woff2") format("woff2"); font-display: swap; }
+    @font-face { font-family: "Tsunagi"; src: url("./TsunagiGothic-Black.woff2") format("woff2"); font-display: swap; }
 
-    body {
-      font-family: "Tsunagi", sans-serif; /* 全体はつなぎフォント */
-      line-height: 1.6;
-      margin: 2rem;
-    }
+    body{ margin:0; font-family:"Tsunagi","NicoKaku",sans-serif; background:#fff; padding-top:68px; }
 
-    /* ▼ ロゴ（常時表示） */
-    .logo img {
-      display: block;
-      max-width: 300px;
-      margin-bottom: 1rem;
+    .header{
+      position:fixed; top:0; left:0; right:0; height:68px;
+      display:flex; align-items:center; gap:1.5rem;
+      background:#7e4fc1; color:#fff; padding:0 1.25rem;
+      z-index:1000;
     }
+    .logo img{ height:44px; display:block; }
+    .nav a{ color:#fff; text-decoration:none; font-weight:700; font-family:"NicoKaku",sans-serif; }
+    .nav a:hover { text-decoration:underline; }
 
-    /* ▼ アコーディオンボタン */
-    .accordion-btn {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      font-weight: bold;
-      background-color: #eee;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      font-family: "Tsunagi", sans-serif;
-    }
-    .accordion-btn .arrow {
-      display: inline-block;
-      transition: transform 0.3s ease;
-      margin-right: 0.5rem;
-    }
-    .accordion-btn.active .arrow {
-      transform: rotate(90deg);
-    }
-
-    /* ▼ アコーディオンの中身 */
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      padding: 0 1rem;
-      background-color: #f9f9f9;
-    }
-    .accordion-content.show {
-      padding: 1rem;
-      max-height: 2000px;
-    }
-
-    a {
-      color: #4c0082;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ▼ 幽霊アニメ */
-    @keyframes ghost {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .ghost {
-      opacity: 0;
-    }
-    .ghost.show {
-      animation: ghost 1s ease-out forwards;
-    }
-
+    main{ max-width:980px; margin:2rem auto; padding:1rem; }
   </style>
 </head>
 <body>
+  <header class="header">
+    <div class="logo"><img src="スクボカ+ png2.png" alt="スクボカロゴ"></div>
+    <nav class="nav">
+      <a href="about.html">スクボカとは？</a>
+    </nav>
+  </header>
 
-  <!-- ロゴは常に表示 -->
-  <div class="logo">
+  <main>
+     <div class="ghost">
     <img src="スクボカ+ png2.png" alt="スクボカロゴ">
   </div>
-
-  <!-- アコーディオンボタン -->
-  <button class="accordion-btn">
-    <span class="arrow">▶</span>
-    わたしたちについて
-  </button>
-
-  <!-- アコーディオン中身 -->
-  <div class="accordion-content">
-    <div class="ghost">
-      <p>
-        スクボカとは、ScratchでのボカロP(スクボカロP)を増やす目的のスタジオ
-        <a href="https://scratch.mit.edu/studios/50803615" target="_blank" rel="noopener noreferrer">
-          「[公式]スクボカ」
-        </a>、
-        それを移行したDiscordのサーバー「[公式]スクボカ」のことです。
-        それらのコミュニティーのwebpage版として管理者により作成されたのがこのwebpageです。
-      </p>
-
-      <h1>管理者について</h1>
-      <p>
-        管理者は、このプロダクトを制御します。Scratch内では管理者以外を招待すること、
-        あるいはその人々をBANする権利が与えられます。<br>
-        管理者の選考は<b><a href="https://scratch.mit.edu/users/_ugly-maximizer_/" target="_blank">
-          @_ugly-maximizer_
-        </a></b>(私)とその他管理者により定められます。また、管理者が違反行為などを行った場合_ugly-maximizer_がBANします。<br>
-        管理者はDiscord内ではほぼすべての権限を与えられます。
-      </p>
-
-      <h2>管理者一覧</h2>
-      <ul>
-        <li><a href="https://scratch.mit.edu/users/_ugly-maximizer_/" target="_blank">@_ugly-maximizer_</a> (私、みにくP)</li>
-        <li><a href="https://scratch.mit.edu/users/Q4119/" target="_blank">@Q4119様</a> (名義なし)</li>
-        <li><a href="https://scratch.mit.edu/users/hoshikage-sekai/" target="_blank">@hoshikage-sekai様</a> (孤宵)</li>
-        <li><a href="https://scratch.mit.edu/users/kuronya0119/" target="_blank">@kuronya0119</a> (くろにゃ)</li>
-        <li><a href="https://scratch.mit.edu/users/kaeruha/" target="_blank">@kaeruha</a> (蛙葉)</li>
-      </ul>
-    </div>
-  </div>
-
-  <script>
-    // ▼ アコーディオン処理
-    const btn = document.querySelector(".accordion-btn");
-    const content = document.querySelector(".accordion-content");
-    btn.addEventListener("click", () => {
-      content.classList.toggle("show");
-      btn.classList.toggle("active");
-    });
-
-    // ▼ 幽霊アニメ
-    const ghosts = document.querySelectorAll(".ghost");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    }, { threshold: 0.2 });
-
-    ghosts.forEach(el => observer.observe(el));
-  </script>
-
+    <p>次のランキング>>2026.5月~</p>
+  </main>
 </body>
 </html>
-
