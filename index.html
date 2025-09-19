@@ -22,6 +22,47 @@
     .nav a:hover { text-decoration:underline; }
 
     main{ max-width:980px; margin:2rem auto; padding:1rem; }
+    .songs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .song-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .song-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .song-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .song-info {
+      padding: 0.8rem;
+    }
+
+    .song-info h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .song-info p {
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -39,5 +80,24 @@
   </div>
     <p>次のランキング>>2026.5月~</p>
   </main>
+ <script>
+function addSongCard(imageUrl, title, author) {
+      const card = document.createElement("div");
+      card.className = "song-card";
+      card.innerHTML = `
+        <img src="${imageUrl}" alt="${title}">
+        <div class="song-info">
+          <h3>${title}</h3>
+          <p>by ${author}</p>
+        </div>
+      `;
+      songList.appendChild(card);
+    }
+
+    // ✅ デモ曲
+    addSongCard("https://picsum.photos/400/200?random=1", "奇麗事", "作者A");
+    addSongCard("https://picsum.photos/400/200?random=2", "フサグ", "作者B");
+    addSongCard("https://picsum.photos/400/200?random=3", "物ト", "作者C");
+ </script>
 </body>
 </html>
